@@ -101,7 +101,7 @@ This project documents the setup and configuration of a Siemens KTP400 Basic HMI
 
 ## 8. Change Log
 
-* **2025-07-07:** Initial setup completed. Connected HMI to simulated PLC using PLCSIM Advanced.
+* **2025-07-07:** Initial setup completed.
 * **2025-07-08:**
 * **2025-07-09:**
 
