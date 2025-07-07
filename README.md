@@ -8,7 +8,7 @@ This project documents the setup and configuration of a Siemens KTP400 Basic HMI
 ## 2. Hardware Configuration
 
 * **HMI model:** Siemens KTP400 Basic
-* **PLC model:** Siemens S7-1200 (exact model TBD)
+* **PLC model:** Siemens S7-1200 (simulated using PLCSIM Advanced)
 * **Power Supply:** 24V DC
 * **Network:** PROFINET communication via Ethernet
 
@@ -17,9 +17,9 @@ This project documents the setup and configuration of a Siemens KTP400 Basic HMI
 * **TIA Portal Version:** X.X
 * **New project creation:**
 
-  * Add new devices: S7-1200 and KTP400 Basic
+  * Add new devices: S7-1200 (virtual) and KTP400 Basic (physical)
   * Configure PROFINET communication between HMI and PLC
-  * Set IP addresses (e.g., HMI: 192.168.0.2, PLC: 192.168.0.1)
+  * Set IP addresses (e.g., HMI: 192.168.0.2, PC virtual NIC: 192.168.0.100)
 * **Tag synchronization:**
 
   * Link PLC tags to HMI by referencing PLC tags in HMI screens
@@ -42,12 +42,21 @@ This project documents the setup and configuration of a Siemens KTP400 Basic HMI
 
 ## 6. Testing and Simulation
 
-* **Offline HMI simulation:** Tested navigation and button interaction
-* **Online test with PLC:** Verified tag communication and screen response
-* **Common issues:**
+* **Simulated PLC:** PLCSIM Advanced used to simulate S7-1200
+* **Ethernet setup:**
 
-  * Tag not linked correctly → Rechecked HMI-PLC connection
-  * Screen elements not updating → Verified runtime updates
+  * HMI connected via Ethernet to PC's virtual network adapter
+  * IP address of virtual NIC: 192.168.0.100
+  * HMI IP address: 192.168.0.2
+* **Enable external communication** in PLCSIM Advanced
+* **Download:**
+
+  * PLC program to PLCSIM Advanced
+  * HMI runtime to physical KTP400 Basic
+* **Results:**
+
+  * Verified real HMI buttons trigger virtual PLC logic
+  * Tags and values reflected correctly
 
 ## 7. Notes & Best Practices
 
@@ -55,12 +64,13 @@ This project documents the setup and configuration of a Siemens KTP400 Basic HMI
 * Use consistent naming for tags.
 * Back up the project before deployment.
 * Validate IP settings and PROFINET configuration on both devices.
+* For this method, ensure PLCSIM Advanced is installed and configured to allow external connections.
 
 ## 8. Change Log
 
-* **2025-07-07:** Initial setup completed. Connected HMI to PLC.
-* **2025-07-08:** Designed basic HMI screens. Integrated motor control buttons.
-* **2025-07-09:** Added alarm screen and historical logging.
+* **2025-07-07:** Initial setup completed. Connected HMI to simulated PLC using PLCSIM Advanced.
+* **2025-07-08:**&#x20;
+* **2025-07-09:**&#x20;
 
 ---
 
