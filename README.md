@@ -1,20 +1,52 @@
 # Pioneer
 # Siemens KTP400 Basic – HMI Setup & Configuration
 
+## Module 1: HMI Wiring
+
+This module covers the physical wiring and powering of the Siemens KTP400 Basic HMI panel.
+
+### Power Supply Setup
+
+* **Power source used:** Meanwell LRS-50-24 (24 V DC output)
+* **Terminals connected:**
+
+  * **+V (Meanwell)** → **L+ (HMI)**
+  * **–V (Meanwell)** → **M (HMI)**
+* **AC Input to power supply:**
+
+  * **L:** Connected to AC phase (110/220 V)
+  * **N (M):** Connected to AC neutral
+  * **⏚ GND:** Connected to system ground (Not used in this project setup but recommended)
+
+### Ferrule Usage
+
+* Used **insulated ferrules** to crimp wire ends before inserting into HMI terminals
+* Ensured:
+
+  * No copper strands exposed outside the ferrule
+  * Only the plastic insulation of the ferrule is visible at the terminal entrance
+  * No part of the ferrule’s metal body protrudes excessively from the terminal
+
+### HMI Power-On Verification
+
+* Panel successfully powered on using the Meanwell LRS-50-24
+
 ## 1. Project Overview
 
-This project documents the setup and configuration of a Siemens KTP400 Basic HMI panel, used to interface with a Siemens S7-1200 PLC. The system is developed and configured using Siemens TIA Portal (version X.X).
+This project documents the setup and configuration of a Siemens KTP400 Basic HMI panel, used to interface with a Siemens S7-1200 PLC (S7 series are mostlikely to be compatible). The system is developed and configured using Siemens TIA Portal (version 19).
 
 ## 2. Hardware Configuration
 
 * **HMI model:** Siemens KTP400 Basic
 * **PLC model:** Siemens S7-1200 (simulated using PLCSIM Advanced)
-* **Power Supply:** 24V DC
+* **Power Supply:** 24V DC (required for HMI operation)
 * **Network:** PROFINET communication via Ethernet
+
+> ⚠️ Note: The HMI panel must be powered with a stable 24V DC supply in addition to the Ethernet communication. Ethernet provides data communication only, not power.
 
 ## 3. Software Setup (TIA Portal)
 
-* **TIA Portal Version:** X.X
+* **TIA Portal Version:** V19
 * **New project creation:**
 
   * Add new devices: S7-1200 (virtual) and KTP400 Basic (physical)
@@ -65,12 +97,13 @@ This project documents the setup and configuration of a Siemens KTP400 Basic HMI
 * Back up the project before deployment.
 * Validate IP settings and PROFINET configuration on both devices.
 * For this method, ensure PLCSIM Advanced is installed and configured to allow external connections.
+* The KTP400 Basic HMI **requires a 24V DC power supply** to operate; Ethernet alone is not sufficient.
 
 ## 8. Change Log
 
 * **2025-07-07:** Initial setup completed. Connected HMI to simulated PLC using PLCSIM Advanced.
-* **2025-07-08:**&#x20;
-* **2025-07-09:**&#x20;
+* **2025-07-08:**
+* **2025-07-09:**
 
 ---
 
